@@ -1,0 +1,597 @@
+export const CoursePageData = [
+    {
+        "manipal_university": {
+            "online_mba": {
+                "page": {
+                    "title": "Master of Business Administration (Online MBA)",
+                    "university": "Online Manipal University, Jaipur",
+                    "accreditations": [
+                        {
+                            "name": "UGC Entitled",
+                            "icon": "https://Edukyu.com/assets/cxp-assets/imgs/collage/manipal-university/mba/ugc-small.png"
+                        },
+                        {
+                            "name": "NAAC A+ accredited",
+                            "icon": "https://Edukyu.com/assets/cxp-assets/imgs/collage/manipal-university/mba/naac-small.png"
+                        }
+                    ],
+                    "logo": "https://Edukyu.com/assets/cxp-assets/imgs/collage/manipal-university/mba/first-section-logo.png",
+                    "description": "Manipal University Online Jaipur offers a 2-year online MBA program tailored for both experienced professionals and fresh graduates. This program combines the flexibility of online learning with high-quality education, ensuring students gain valuable skills to excel in today's competitive business environment. Classes, assignments, projects, examinations, and placement opportunities are conducted entirely online, allowing students to learn and grow from the comfort of their homes.",
+                    "duration": {
+                        "length": "24 Months",
+                        "weeklyHours": "15-20 hours/week",
+                        "workExperience": "No experience required"
+                    },
+                    "fees": {
+                        "total": "INR 1,75,000",
+                        "perSemester": "INR 43,750",
+                        "emi": "INR 7,292/month*",
+                        "additionalBenefits": "Free access to paid Coursera content"
+                    },
+                    "courses": [
+                        {
+                            "name": "MCA",
+                            "duration": "2 years",
+                            "type": "PG",
+                            "fees": {
+                                "original": "₹118,000",
+                                "discounted": "₹88,500",
+                                "display": "₹88,500"
+                            },
+                            "sourceSection": "1_about_mba"
+                        },
+                        {
+                            "name": "MCom",
+                            "duration": "2 years",
+                            "type": "PG",
+                            "fees": {
+                                "original": "₹118,000",
+                                "discounted": "₹60,000",
+                                "display": "₹60,000"
+                            },
+                            "sourceSection": "1_about_mba"
+                        },
+                        {
+                            "name": "M.Sc",
+                            "duration": "2 years",
+                            "type": "PG",
+                            "fees": {
+                                "original": "₹108,000",
+                                "discounted": "₹81,000",
+                                "display": "₹81,000"
+                            },
+                            "sourceSection": "1_about_mba"
+                        },
+                        {
+                            "name": "BBA",
+                            "duration": "3 years",
+                            "type": "UG",
+                            "fees": {
+                                "original": "₹108,000",
+                                "discounted": "₹81,000",
+                                "display": "₹81,000"
+                            },
+                            "sourceSection": "1_about_mba"
+                        },
+                        {
+                            "name": "BCA",
+                            "duration": "3 years",
+                            "type": "UG",
+                            "fees": {
+                                "original": "₹75,000",
+                                "discounted": "₹56,250",
+                                "display": "₹56,250"
+                            },
+                            "sourceSection": "1_about_mba"
+                        },
+                        {
+                            "name": "MBA",
+                            "duration": "2 years",
+                            "type": "PG",
+                            "fees": {
+                                "original": "₹118,000",
+                                "discounted": "₹88,500",
+                                "display": "₹88,500"
+                            },
+                            "sourceSection": "2_about_mca"
+                        },
+                        {
+                            "name": "B.Com",
+                            "duration": "3 years",
+                            "type": "UG",
+                            "fees": {
+                                "original": "₹75,000",
+                                "discounted": "₹56,250",
+                                "display": "₹56,250"
+                            },
+                            "sourceSection": "4_about_msc_mathematics"
+                        }
+                    ]
+                },
+                "specializations": [
+                    {
+                        "name": "Finance",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/tdesign_money.png",
+                        "link": "/manipal-university/online-mba-finance"
+                    },
+                    {
+                        "name": "Marketing",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/nimbus_marketing.png"
+                    },
+                    {
+                        "name": "Human Resource Management",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/eva_people-fill.png"
+                    },
+                    {
+                        "name": "Analytics and Data Science",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/carbon_analytics.png"
+                    },
+                    {
+                        "name": "IT & Fintech",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/lucide_circle.png"
+                    },
+                    {
+                        "name": "Operations Management",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/ep_operation.png"
+                    },
+                    {
+                        "name": "Strategy",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/icon-park-outline_international.png"
+                    },
+                    {
+                        "name": "Entrepreneurship",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/subway_coin.png"
+                    },
+                    {
+                        "name": "Supply Chain Management",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/material-symbols_square-outline.png"
+                    },
+                    {
+                        "name": "Project Management",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/fluent-emoji-high-contrast_chains.png"
+                    }
+                ],
+                "accreditations": [
+                    {
+                        "name": "NAAC A+ Accredited University",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/naac.jpg",
+                        "description": "Rajasthan's 1st NAAC A+ Accredited University"
+                    },
+                    {
+                        "name": "UGC Entitled",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/ugc.jpg",
+                        "description": "Entitled Online Degrees Equivalent to Campus Degree"
+                    },
+                    {
+                        "name": "AICTE Approved",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/aicte.jpg",
+                        "description": "AICTE Approved Programs"
+                    },
+                    {
+                        "name": "Career Ranking",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/career.jpg",
+                        "description": "Amongst India's Top 15 Universities (Management)"
+                    },
+                    {
+                        "name": "WES Recognition",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/wes.jpg",
+                        "description": "Globally Recognized Online Degrees"
+                    },
+                    {
+                        "name": "ACU Member",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/acu.jpg",
+                        "description": "Member of ACU"
+                    },
+                    {
+                        "name": "ICAS Canada",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/icas.jpg",
+                        "description": "International Credential Assessment Service of Canada"
+                    },
+                    {
+                        "name": "NIRF Ranking",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/nirf.jpg",
+                        "description": "Amongst India's Top #101-150 Universities in 2023"
+                    },
+                    {
+                        "name": "QS World University Rankings",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/qs-wur.jpg",
+                        "description": "Amongst South Asia's Top Universities in 2024"
+                    },
+                    {
+                        "name": "IQAS",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/iqas.jpg",
+                        "description": "International Qualifications Assessment Service(IQAS)"
+                    },
+                    {
+                        "name": "Zambia Qualifications Authority",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/zg.jpg",
+                        "description": "Zambia Qualifications Authority"
+                    }
+                ],
+                "programBenefits": [
+                    {
+                        "title": "Enhanced Earning Potential",
+                        "description": "Achieve leadership roles with competitive salary packages and excel as a dynamic leader across various industries, leveraging advanced management skills and strategic insights.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/enhanced-capacity-for-higher-earnings.avif"
+                    },
+                    {
+                        "title": "Get skills that make you ready for jobs",
+                        "description": "Develop critical business acumen, including strategic thinking, leadership, problem-solving, and cross-cultural proficiency. Acquire expertise in areas like operations management, strategic management, managerial economics, and international business from experienced faculty, preparing you for leadership roles in diverse industries.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/Get-skills-that-make-you-ready-for-jobs.avif"
+                    },
+                    {
+                        "title": "Connect globally and tap into alumni resources",
+                        "description": "Engage with a diverse student and alumni network alongside industry frontrunners to gain insights into global market dynamics, challenges, and trends. Join the esteemed alumni community of Manipal University Jaipur and become part of its influential network.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/Connect-globally-and-tap-into-alumni-resources.avif"
+                    },
+                    {
+                        "title": "10 career-oriented elective courses",
+                        "description": "Choose from 10 industry-focused elective courses, including Analytics & Data Science, Supply Chain Management, International Business, and IT & FinTech, tailored to match your skills and career goals.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/10-career-oriented-elective-courses.avif"
+                    },
+                    {
+                        "title": "Case studies reflecting real-world situations",
+                        "description": "Gain access to case studies that bridge theoretical concepts with real-world business scenarios, enriching your learning journey.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/Case-studies-reflecting-real-world-situations.avif"
+                    },
+                    {
+                        "title": "Fully Online experience",
+                        "description": "100% Online Experience: Embark on a fully online journey, including enrollment, orientation, classes, assignments, projects, exams, and placement. Benefit from dedicated course mentors and 24/7 student support to enhance your learning experience.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/Fully-Online-experience.avif"
+                    }
+                ],
+                "careerOpportunities": {
+                    "jobRoles": [
+                        "General Manager",
+                        "Finance Manager",
+                        "Operations Lead",
+                        "HR Associate",
+                        "Digital Marketer",
+                        "Territory Manager",
+                        "Supply Chain Manager",
+                        "Quality Controller",
+                        "Project Manager",
+                        "Entrepreneurship"
+                    ],
+                    "industries": [
+                        "Advertising",
+                        "Consulting",
+                        "Retail",
+                        "FMCG",
+                        "Media & Publication",
+                        "Manufacturing",
+                        "EdTech",
+                        "Financial Services",
+                        "Banking"
+                    ]
+                },
+                "curriculum": {
+                    "duration": "24 months",
+                    "structure": "4 semesters",
+                    "weeklyCommitment": "15-20 hours/week",
+                    "credits": "102 credits",
+                    "semesters": [
+                        {
+                            "number": 1,
+                            "description": "This semester is all about learning foundational management skills from organizational behavior statistics for management to managerial economics and HR management",
+                            "courses": [
+                                "Management Process and Organizational Behaviour",
+                                "Business Communication",
+                                "Statistics for Management",
+                                "Financial and Management Accounting",
+                                "Managerial Economics",
+                                "Human Resource Management"
+                            ]
+                        },
+                        {
+                            "number": 2,
+                            "description": "In your second semester, we equip you with analytical and decision making skills. You'll be immersed in new learning about production and financial management.You'll also be given an overview on managing MIS, CRM and international systems.We give you an overview of operations research, duality analysis, game theory, and simulation.",
+                            "courses": [
+                                "Production and Operations Management",
+                                "Financial Management",
+                                "Marketing Management",
+                                "Management Information System",
+                                "Operations Research",
+                                "Project Management"
+                            ]
+                        },
+                        {
+                            "number": 3,
+                            "description": "Take a deep dive into research methodologies, the legal aspects of business and IP, and choose from 10 strtegic electives to specialize in an area of your interest.",
+                            "courses": [
+                                "Research Methodology",
+                                "Legal Aspects of Business",
+                                "Elective"
+                            ]
+                        },
+                        {
+                            "number": 4,
+                            "description": "In your last semester, we help you understand strategic management & business policy, international business management, and inculcate entrepreneurial skills. You'll get hands-on experience with project work in your chosen area of elective. You'll also have made steady networks through internships, peers and engaging with our faculty & thought leaders. You're ready to work towards your career goals.",
+                            "courses": [
+                                "Strategic Management and Business Policy",
+                                "International Business Management",
+                                "Business Leadership",
+                                "Elective"
+                            ]
+                        }
+                    ]
+                },
+                "additionalTools": {
+                    "title": "Additional tools & certifications",
+                    "description": "Access 110+ hours of exclusively curated skill enhancement content worth INR 50,000.",
+                    "categories": [
+                        {
+                            "name": "Future Tech For Emerging Leaders",
+                            "items": [
+                                "Data Analytics for Business Decisions",
+                                "Innovation",
+                                "Business Lessons from Industry Leaders",
+                                "Project Management Essentials",
+                                "ESG Guidelines for Leaders"
+                            ]
+                        },
+                        {
+                            "name": "Business Skills For Leaders",
+                            "items": [
+                                "Building Businesses in Global Markets",
+                                "Effective Communication Skills",
+                                "Management Process & Organizational Behavior",
+                                "Strategic Leadership"
+                            ]
+                        }
+                    ]
+                },
+                "feeStructure": {
+                    "categories": [
+                        {
+                            "name": "Indian Students",
+                            "fullCourseFee": "INR 1,75,000",
+                            "perSemester": "INR 43,750",
+                            "emi": "INR 7,292/month*",
+                            "note": "All Indian nationals paying fee in INR will be considered domestic students and will be given access to the LMS (Learning Management System) and academic content only within India."
+                        },
+                        {
+                            "name": "Non-Resident Indians",
+                            "fullCourseFee": "USD 2,692",
+                            "perSemester": "USD 673"
+                        },
+                        {
+                            "name": "Foreign Nationals",
+                            "fullCourseFee": "USD 3,140",
+                            "perSemester": "USD 785"
+                        },
+                        {
+                            "name": "African Students",
+                            "fullCourseFee": "USD 2,360",
+                            "perSemester": "USD 590"
+                        }
+                    ],
+                    "financialOptions": [
+                        {
+                            "title": "Avail easy financing options",
+                            "description": "With our no-cost EMIs, we let your learning take the spotlight without the stress of financing.",
+                            "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/union-19.png"
+                        },
+                        {
+                            "title": "Get attractive scholarships",
+                            "description": "Exclusive scholarships designed for defense personnel, government employees, sportspersons, differently-abled people, MUJ alumni & meritorious students.",
+                            "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/union-20.png"
+                        }
+                    ]
+                },
+                "eligibility": {
+                    "domestic": {
+                        "educationalQualification": "10 + 2 + 3-year or 4 year bachelor's degree from a recognized university/institution or an equivalent qualification as recognized by the Association of Indian Universities.",
+                        "grades": "A minimum of 50% marks in aggregate in graduation (45% for reserved categories).",
+                        "aptitudeTest": "Candidates must clear Manipal University Jaipur's online aptitude test as part of the application process. Candidates with a valid score (40 percentile) in any of the following aptitude tests: CAT, MAT, CMAT, XAT, or GMAT, are exempted from appearing in the online test.",
+                        "workExperience": "Not mandatory."
+                    },
+                    "international": {
+                        "educationalQualification": "Candidates must have a 10 + 2 + 3-year bachelor's degree from a recognized university/institution or an equivalent qualification as recognized by the Association of Indian Universities. Candidates who have completed 10+2 education or graduate level education outside India must produce a certificate of equivalence issued by the Association of Indian Universities.",
+                        "grades": "Candidates must have a minimum of 50% marks in aggregate in graduation.",
+                        "aptitudeTest": "Candidates must clear Manipal University Jaipur's online aptitude test as part of the application process. Candidates with a valid score (40 percentile) from any aptitude test (CAT/MAT/CMAT/XAT/GMAT) need not appear in the above test.",
+                        "otherRequirements": "Candidates who are not Indian citizens or residing outside India and holding NRE or PIO status will be billed an international fee for respective degrees & may need to submit documents mentioned but not limited to CV, address proof, valid visa, PR card & passport copy as part of the application process"
+                    }
+                },
+                "admissionProcess": [
+                    {
+                        "step": 1,
+                        "title": "Program registration",
+                        "description": "Fill in your basic, education & work experience-related details and pay the application fee to register.",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/Group.png"
+                    },
+                    {
+                        "step": 2,
+                        "title": "Fee payment",
+                        "description": "Pay the admission fee for the first semester/year or full program.",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/Fee-payment.png"
+                    },
+                    {
+                        "step": 3,
+                        "title": "Document Submission",
+                        "description": "Upload supporting documents & submit your application.",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/document-upload.png"
+                    },
+                    {
+                        "step": 4,
+                        "title": "Admission Confirmation",
+                        "description": "The university will evaluate your documents to confirm your admission.",
+                        "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/University-Approval.png"
+                    }
+                ],
+                "faculty": [
+                    {
+                        "name": "Dr. Kasinathan S",
+                        "position": "Deputy Director & Professor",
+                        "qualifications": "Ph.D., M.Phil., MBA",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/1.png"
+                    },
+                    {
+                        "name": "Dr. D Pushpa Gowri",
+                        "position": "Assistant Professor (Senior Scale)",
+                        "qualifications": "Ph.D., BCom, MCom, MBA",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/2.png"
+                    },
+                    {
+                        "name": "Dr. Mehak Gulati",
+                        "position": "Assistant Professor",
+                        "qualifications": "Ph.D., MCom",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/3.png"
+                    },
+                    {
+                        "name": "Dr. Durgesh Batra",
+                        "position": "Professor",
+                        "qualifications": "BSC, MSc. MBA Ph.D.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/4.png"
+                    },
+                    {
+                        "name": "Dr. Bharti Singh",
+                        "position": "Assistant Registrar & Assistant Professor (Senior Scale)",
+                        "qualifications": "Ph.D., MA (English)",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/5.png"
+                    },
+                    {
+                        "name": "Dr Avnish Vijay",
+                        "position": "Assistant Director & Associate Professor",
+                        "qualifications": "Ph.D., MBA, M.E.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/6.png"
+                    },
+                    {
+                        "name": "Dr. David Campbell",
+                        "position": "Assistant Professor",
+                        "qualifications": "Ph.D., MBA",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/7.png"
+                    },
+                    {
+                        "name": "Dr. Jagriti Singh",
+                        "position": "Assistant Professor (Senior Scale)",
+                        "qualifications": "Ph.D., MBA",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/8.png"
+                    },
+                    {
+                        "name": "Ms. Anadi Trikha",
+                        "position": "Assistant Professor",
+                        "qualifications": "BBA, MBA, Ph.D. (Pursuing)",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/9.png"
+                    },
+                    {
+                        "name": "Dr. Neelu Jain",
+                        "position": "Assistant Registrar & Assistant Professor (Senior Scale)",
+                        "qualifications": "Ph.D., M.Phil., MBA, M.A.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/10.png"
+                    },
+                    {
+                        "name": "Ms. Aditi Kaushik",
+                        "position": "Assistant Professor",
+                        "qualifications": "B.E, MCom, PDGM, Ph. D. (Submitted)",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/11.png"
+                    },
+                    {
+                        "name": "Dr. Harendra Singh",
+                        "position": "Associate Professor",
+                        "qualifications": "Ph.D., MBA",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/12.png"
+                    },
+                    {
+                        "name": "Dr. Antima Sharma",
+                        "position": "Assistant Professor",
+                        "qualifications": "BCom, MBA, PhD",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/13.png"
+                    },
+                    {
+                        "name": "Dr. Maani Dutt",
+                        "position": "Assistant Professor",
+                        "qualifications": "Ph.D., MBA",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/14.png"
+                    },
+                    {
+                        "name": "Dr. Preeti Nagar",
+                        "position": "Assistant Professor",
+                        "qualifications": "Ph.D., MBA, B.Tech",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/15.png"
+                    },
+                    {
+                        "name": "Dr. Shilpi",
+                        "position": "Associate Professor",
+                        "qualifications": "Ph.D., MIB, MCom",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/16.png"
+                    },
+                    {
+                        "name": "Dr. Rohit Singh Tomar",
+                        "position": "Associate Professor",
+                        "qualifications": "B.Sc., MBA, PhD",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/17.png"
+                    },
+                    {
+                        "name": "Dr. Shweta Gakhreja",
+                        "position": "Assistant Professor",
+                        "qualifications": "Ph.D., MCom",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/18.png"
+                    },
+                    {
+                        "name": "Dr Aditi Dadhich",
+                        "position": "Assistant Professor",
+                        "qualifications": "Ph.D., MBA, BCom",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/19.png"
+                    },
+                    {
+                        "name": "Dr. Rajesh Handa",
+                        "position": "Assistant Professor",
+                        "qualifications": "MBA, PGDM (HRM) Ph.D.",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/20.png"
+                    },
+                    {
+                        "name": "CS Arpita Agarwal",
+                        "position": "Assistant Professor",
+                        "qualifications": "BCom (Hons), MCom, B.Ed, Ph.D. (Pursuing)",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/21.png"
+                    },
+                    {
+                        "name": "Dr. Surbhi Mathur",
+                        "position": "Assistant Professor (Senior Scale)",
+                        "qualifications": "Ph.D., MBA, MCom",
+                        "image": "/assets/cxp-assets/imgs/collage/manipal-university/mba/22.png"
+                    }
+                ],
+                "placementAssistance": [
+                    {
+                        "title": "Resume building",
+                        "description": "Create impactful resumes with the help of our advanced placement portal and increase your chances of securing interviews for relevant job roles.",
+                        "image": "/assets/cxp-assets/manipal-university/img/Employability-assessments.jpg"
+                    },
+                    {
+                        "title": "Alumni interactions during & after program",
+                        "description": "Interact with alumni and receive industry insights and career guidance during and after the program",
+                        "image": "/assets/cxp-assets/manipal-university/img/special-course.jpg"
+                    },
+                    {
+                        "title": "Industry-readiness sessions",
+                        "description": "Familiarize yourself with industry trends, organizational expectations, and recruiter behaviour. Get equipped with the relevant skills and become job ready.",
+                        "image": "/assets/cxp-assets/manipal-university/img/mock-interviews.jpg"
+                    },
+                    {
+                        "title": "Virtual placement drives",
+                        "description": "E-connect with potential employers and explore job opportunities in a convenient and efficient manner while reaping the same benefits as an on-campus recruitment drive.",
+                        "image": "/assets/cxp-assets/manipal-university/img/recruiters.jpg"
+                    }
+                ],
+                "faqs": [
+                    {
+                        "question": "What is the cost of an online MBA at Manipal University?",
+                        "answer": "The cost of an online MBA at Manipal University is Rs 1,75,000/-. The semester-wise fee for the university is Rs 43,750/-."
+                    },
+                    {
+                        "question": "Which university is best for an online MBA in finance?",
+                        "answer": "Manipal Online University is among the best universities in India for MBA in Finance. Other prestigious universities for the course are Amity Online University, DY Patil University, Shoolini University, Jain University, etc."
+                    },
+                    {
+                        "question": "Is an online MBA in finance good?",
+                        "answer": "Finance is one of the most booming industries in India. Several job options in this field, from wealth manager, financial advisor, risk manager and more. Individuals can pursue an online MBA in Finance and build their career."
+                    },
+                    {
+                        "question": "Do companies accept online MBAs?",
+                        "answer": "An online MBA from a recognized university is valid. Almost all the companies accept online MBA degrees from Infosys, Genpact, Tata Communications, Wipro, and KPMG."
+                    }
+                ]
+            }
+        },
