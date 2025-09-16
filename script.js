@@ -172,6 +172,21 @@ function initializeForm() {
     if (document.getElementById('placement-assistance-container').children.length === 0) {
         addPlacementService();
     }
+    if (document.getElementById('hiring-partners-container').children.length === 0) {
+        addHiringPartner();
+    }
+    if (document.getElementById('regular-scholarships-container').children.length === 0) {
+        addRegularScholarship();
+    }
+    if (document.getElementById('cuet-scholarship-container').children.length === 0) {
+        addCuetLevel();
+    }
+    if (document.getElementById('merit-scholarship-container').children.length === 0) {
+        addMeritLevel();
+    }
+    if (document.getElementById('sports-scholarship-container').children.length === 0) {
+        addSportsLevel();
+    }
     // Initialize course selection with first course pre-filled
     const firstCourseSelect = document.querySelector('select[name="courseName[]"]');
     if (firstCourseSelect) {
@@ -1183,6 +1198,136 @@ function collectFormData() {
         };
     }
 
+    // Collect hiring partners
+    const hiringPartners = [];
+    document.querySelectorAll('input[name="hiringPartnerName[]"]').forEach((nameInput, index) => {
+        const name = nameInput.value.trim();
+        const logo = document.querySelectorAll('input[name="hiringPartnerLogo[]"]')[index]?.value.trim() || '';
+
+        if (name) {
+            hiringPartners.push({ name, logo });
+        }
+    });
+
+    if (hiringPartners.length > 0) {
+        data[university][program].hiringPartners = hiringPartners;
+    }
+
+    // Collect scholarships
+    const scholarships = {};
+
+    // Regular scholarships
+    const regularScholarships = [];
+    document.querySelectorAll('input[name="regularScholarshipName[]"]').forEach((nameInput, index) => {
+        const name = nameInput.value.trim();
+        const discount = document.querySelectorAll('input[name="regularScholarshipDiscount[]"]')[index]?.value.trim() || '';
+        const eligibility = document.querySelectorAll('textarea[name="regularScholarshipEligibility[]"]')[index]?.value.trim() || '';
+
+        if (name) {
+            regularScholarships.push({ name, discount, eligibility });
+        }
+    });
+
+    if (regularScholarships.length > 0) {
+        scholarships.regular_scholarships = regularScholarships;
+    }
+
+    // CUET scholarship
+    const cuetLevels = [];
+    document.querySelectorAll('input[name="cuetPercentile[]"]').forEach((percentileInput, index) => {
+        const percentile = percentileInput.value.trim();
+        const scholarship = document.querySelectorAll('input[name="cuetScholarship[]"]')[index]?.value.trim() || '';
+
+        if (percentile && scholarship) {
+            cuetLevels.push({ percentile, scholarship });
+        }
+    });
+
+    if (cuetLevels.length > 0) {
+        scholarships.cuet_scholarship = { levels: cuetLevels };
+    }
+
+    // Merit scholarship
+    const meritLevels = [];
+    document.querySelectorAll('input[name="meritPercentage[]"]').forEach((percentageInput, index) => {
+        const percentage = percentageInput.value.trim();
+        const scholarship = document.querySelectorAll('input[name="meritScholarship[]"]')[index]?.value.trim() || '';
+
+        if (percentage && scholarship) {
+            meritLevels.push({ scholarship, percentage });
+        }
+    });
+
+    if (meritLevels.length > 0) {
+        scholarships.merit_scholarship = { levels: meritLevels };
+    }
+
+    // Sports scholarship
+    const sportsLevels = [];
+    document.querySelectorAll('select[name="sportsLevel[]"]').forEach((levelSelect, index) => {
+        const level = levelSelect.value.trim();
+        const achievement = document.querySelectorAll('input[name="sportsAchievement[]"]')[index]?.value.trim() || '';
+        const scholarship = document.querySelectorAll('input[name="sportsScholarship[]"]')[index]?.value.trim() || '';
+        const remarks = document.querySelectorAll('input[name="sportsRemarks[]"]')[index]?.value.trim() || '';
+        const renewal = document.querySelectorAll('textarea[name="sportsRenewal[]"]')[index]?.value.trim() || '';
+
+        if (level && achievement && scholarship) {
+            const levelData = {
+                level,
+                achievements: [{ achievement, scholarship }],
+                remarks,
+                renewal_condition: renewal
+            };
+            sportsLevels.push(levelData);
+        }
+    });
+
+    if (sportsLevels.length > 0) {
+        scholarships.sports_scholarship = { levels: sportsLevels };
+    }
+
+    // Thakur Pratap Singh Memorial Scholarship
+    const tpsDescription = document.querySelector('textarea[name="tpsScholarshipDescription"]')?.value.trim();
+    const tpsIndian = document.querySelector('input[name="tpsIndianEligibility"]')?.value.trim();
+    const tpsInternational = document.querySelector('input[name="tpsInternationalEligibility"]')?.value.trim();
+
+    if (tpsDescription || tpsIndian || tpsInternational) {
+        scholarships.thakur_pratap_singh_memorial_scholarship = {
+            description: tpsDescription,
+            eligibility: {
+                indian_students: tpsIndian,
+                international_students: tpsInternational,
+                percentage_in_12th: "100%"
+            }
+        };
+    }
+
+    if (Object.keys(scholarships).length > 0) {
+        data[university][program].scholarships = scholarships;
+    }
+
+    // Collect bank loan assistance
+    const bankLoanDescription = document.querySelector('textarea[name="bankLoanDescription"]')?.value.trim();
+    const loanPartnersText = document.querySelector('textarea[name="loanPartners"]')?.value.trim();
+
+    if (bankLoanDescription || loanPartnersText) {
+        const bankLoan = {
+            description: bankLoanDescription
+        };
+
+        if (loanPartnersText) {
+            const loanPartners = loanPartnersText.split('\n')
+                .map(partner => partner.trim())
+                .filter(partner => partner.length > 0);
+
+            if (loanPartners.length > 0) {
+                bankLoan.loan_partners = loanPartners;
+            }
+        }
+
+        data[university][program].bank_loan_assistance = bankLoan;
+    }
+
     return data;
 }
 
@@ -1801,6 +1946,86 @@ function autofillForm() {
                         services[3].querySelector('.placement-service-description').value = "E-connect with potential employers and explore job opportunities";
                     }
                 }, 300);
+
+                // Fill hiring partners
+                setTimeout(() => {
+                    const partnerNameField = document.querySelector('input[name="hiringPartnerName[]"]');
+                    const partnerLogoField = document.querySelector('input[name="hiringPartnerLogo[]"]');
+
+                    if (partnerNameField) partnerNameField.value = "Google";
+                    if (partnerLogoField) partnerLogoField.value = "/Resources/Images/output_images/niu_about_1_about_mba_hiring_partner_common_for_all_niu_data_1.png";
+
+                    addHiringPartner();
+                    setTimeout(() => {
+                        const partners = document.querySelectorAll('.hiring-partner-item');
+                        if (partners[1]) {
+                            partners[1].querySelector('input[name="hiringPartnerName[]"]').value = "Microsoft";
+                            partners[1].querySelector('input[name="hiringPartnerLogo[]"]').value = "/Resources/Images/output_images/niu_about_1_about_mba_hiring_partner_common_for_all_niu_data_2.png";
+                        }
+                    }, 100);
+
+                    addHiringPartner();
+                    setTimeout(() => {
+                        const partners = document.querySelectorAll('.hiring-partner-item');
+                        if (partners[2]) {
+                            partners[2].querySelector('input[name="hiringPartnerName[]"]').value = "Amazon";
+                            partners[2].querySelector('input[name="hiringPartnerLogo[]"]').value = "/Resources/Images/output_images/niu_about_1_about_mba_hiring_partner_common_for_all_niu_data_3.png";
+                        }
+                    }, 200);
+                }, 350);
+
+                // Fill scholarships
+                setTimeout(() => {
+                    const regularScholarshipName = document.querySelector('input[name="regularScholarshipName[]"]');
+                    const regularScholarshipDiscount = document.querySelector('input[name="regularScholarshipDiscount[]"]');
+                    const regularScholarshipEligibility = document.querySelector('textarea[name="regularScholarshipEligibility[]"]');
+
+                    if (regularScholarshipName) regularScholarshipName.value = "Freedom Fighters Scholarship";
+                    if (regularScholarshipDiscount) regularScholarshipDiscount.value = "20% concession in Tuition fees";
+                    if (regularScholarshipEligibility) regularScholarshipEligibility.value = "Son/Daughter or Grandson/Granddaughter of Freedom Fighters (Applicable for Indian students only)";
+
+                    // CUET Scholarship
+                    const cuetPercentile = document.querySelector('input[name="cuetPercentile[]"]');
+                    const cuetScholarship = document.querySelector('input[name="cuetScholarship[]"]');
+                    if (cuetPercentile) cuetPercentile.value = "95.00 - Above";
+                    if (cuetScholarship) cuetScholarship.value = "100%";
+
+                    // Merit Scholarship
+                    const meritPercentage = document.querySelector('input[name="meritPercentage[]"]');
+                    const meritScholarship = document.querySelector('input[name="meritScholarship[]"]');
+                    if (meritPercentage) meritPercentage.value = "96% and above";
+                    if (meritScholarship) meritScholarship.value = "100%";
+
+                    // Sports Scholarship
+                    const sportsLevel = document.querySelector('select[name="sportsLevel[]"]');
+                    const sportsAchievement = document.querySelector('input[name="sportsAchievement[]"]');
+                    const sportsScholarshipField = document.querySelector('input[name="sportsScholarship[]"]');
+                    const sportsRemarks = document.querySelector('input[name="sportsRemarks[]"]');
+
+                    if (sportsLevel) sportsLevel.value = "International";
+                    if (sportsAchievement) sportsAchievement.value = "Gold medal";
+                    if (sportsScholarshipField) sportsScholarshipField.value = "100%";
+                    if (sportsRemarks) sportsRemarks.value = "Applicable at the time of admission or in the year of achievement while studying at NIU";
+
+                    // TPS Scholarship
+                    const tpsDescription = document.querySelector('textarea[name="tpsScholarshipDescription"]');
+                    const tpsIndian = document.querySelector('input[name="tpsIndianEligibility"]');
+                    const tpsInternational = document.querySelector('input[name="tpsInternationalEligibility"]');
+
+                    if (tpsDescription) tpsDescription.value = "100% scholarship (limited to 100 seats) in the 1st year for meritorious students pursuing undergraduate programs";
+                    if (tpsIndian) tpsIndian.value = "100%";
+                    if (tpsInternational) tpsInternational.value = "100%";
+                }, 400);
+
+                // Fill bank loan assistance
+                setTimeout(() => {
+                    const bankLoanDescription = document.querySelector('textarea[name="bankLoanDescription"]');
+                    const loanPartners = document.querySelector('textarea[name="loanPartners"]');
+
+                    if (bankLoanDescription) bankLoanDescription.value = "Noida International University aims to support deserving/meritorious students in availing financial assistance for pursuing their higher education.";
+                    if (loanPartners) loanPartners.value = "KUHOO\nPROPELLED\nSBI\nHDFC Bank";
+                }, 450);
+
             }, 1200);
 
             console.log("Form filled successfully!");
@@ -1862,10 +2087,6 @@ function addCourse() {
                 <label>Duration:</label>
                 <input type="text" name="courseDuration[]" placeholder="e.g., 2 years, 3 years">
             </div>
-            <div class="form-group">
-                <label>Source Section:</label>
-                <input type="text" name="courseSourceSection[]" placeholder="e.g., 1_about_mba">
-            </div>
         </div>
 
         <div class="form-group">
@@ -1915,7 +2136,6 @@ function autofillCourseData(selectElement, courseValue) {
     const courseItem = selectElement.closest('.course-item');
     const typeSelect = courseItem.querySelector('select[name="courseType[]"]');
     const durationInput = courseItem.querySelector('input[name="courseDuration[]"]');
-    const sourceSectionInput = courseItem.querySelector('input[name="courseSourceSection[]"]');
     const originalFeesInput = courseItem.querySelector('input[name="courseOriginalFees[]"]');
     const discountedFeesInput = courseItem.querySelector('input[name="courseDiscountedFees[]"]');
     const displayFeesInput = courseItem.querySelector('input[name="courseDisplayFees[]"]');
@@ -1924,7 +2144,6 @@ function autofillCourseData(selectElement, courseValue) {
         'MCA': {
             type: 'PG',
             duration: '2 years',
-            sourceSection: '1_about_mba',
             originalFees: '₹118,000',
             discountedFees: '₹88,500',
             displayFees: '₹88,500'
@@ -1932,7 +2151,6 @@ function autofillCourseData(selectElement, courseValue) {
         'MCom': {
             type: 'PG',
             duration: '2 years',
-            sourceSection: '1_about_mba',
             originalFees: '₹118,000',
             discountedFees: '₹60,000',
             displayFees: '₹60,000'
@@ -1940,7 +2158,6 @@ function autofillCourseData(selectElement, courseValue) {
         'M.Sc': {
             type: 'PG',
             duration: '2 years',
-            sourceSection: '1_about_mba',
             originalFees: '₹108,000',
             discountedFees: '₹81,000',
             displayFees: '₹81,000'
@@ -1948,7 +2165,6 @@ function autofillCourseData(selectElement, courseValue) {
         'MBA': {
             type: 'PG',
             duration: '2 years',
-            sourceSection: '2_about_mca',
             originalFees: '₹118,000',
             discountedFees: '₹88,500',
             displayFees: '₹88,500'
@@ -1956,7 +2172,6 @@ function autofillCourseData(selectElement, courseValue) {
         'BBA': {
             type: 'UG',
             duration: '3 years',
-            sourceSection: '1_about_mba',
             originalFees: '₹108,000',
             discountedFees: '₹81,000',
             displayFees: '₹81,000'
@@ -1964,7 +2179,6 @@ function autofillCourseData(selectElement, courseValue) {
         'BCA': {
             type: 'UG',
             duration: '3 years',
-            sourceSection: '1_about_mba',
             originalFees: '₹75,000',
             discountedFees: '₹56,250',
             displayFees: '₹56,250'
@@ -1972,7 +2186,6 @@ function autofillCourseData(selectElement, courseValue) {
         'B.Com': {
             type: 'UG',
             duration: '3 years',
-            sourceSection: '4_about_msc_mathematics',
             originalFees: '₹75,000',
             discountedFees: '₹56,250',
             displayFees: '₹56,250'
@@ -1983,7 +2196,6 @@ function autofillCourseData(selectElement, courseValue) {
         const data = courseData[courseValue];
         typeSelect.value = data.type;
         durationInput.value = data.duration;
-        sourceSectionInput.value = data.sourceSection;
         originalFeesInput.value = data.originalFees;
         discountedFeesInput.value = data.discountedFees;
         displayFeesInput.value = data.displayFees;
@@ -1991,7 +2203,6 @@ function autofillCourseData(selectElement, courseValue) {
         // Clear all fields for custom course
         typeSelect.value = '';
         durationInput.value = '';
-        sourceSectionInput.value = '';
         originalFeesInput.value = '';
         discountedFeesInput.value = '';
         displayFeesInput.value = '';
@@ -2046,7 +2257,6 @@ function getSelectedCourses() {
         const typeSelect = item.querySelector('select[name="courseType[]"]');
         const customNameInput = item.querySelector('input[name="customCourseName[]"]');
         const durationInput = item.querySelector('input[name="courseDuration[]"]');
-        const sourceSectionInput = item.querySelector('input[name="courseSourceSection[]"]');
         const originalFeesInput = item.querySelector('input[name="courseOriginalFees[]"]');
         const discountedFeesInput = item.querySelector('input[name="courseDiscountedFees[]"]');
         const displayFeesInput = item.querySelector('input[name="courseDisplayFees[]"]');
@@ -2065,8 +2275,7 @@ function getSelectedCourses() {
                     original: originalFeesInput.value || '',
                     discounted: discountedFeesInput.value || '',
                     display: displayFeesInput.value || ''
-                },
-                sourceSection: sourceSectionInput.value || ''
+                }
             };
 
             selectedCourses.push(course);
@@ -2133,5 +2342,190 @@ function removeToolItem(button) {
         toolItem.remove();
     } else {
         showMessage('At least one tool item must be present', 'warning');
+    }
+}
+
+// Hiring Partners Functions
+function addHiringPartner() {
+    const container = document.getElementById('hiring-partners-container');
+    const newPartner = document.createElement('div');
+    newPartner.className = 'hiring-partner-item';
+    newPartner.innerHTML = `
+        <div class="form-row">
+            <div class="form-group">
+                <label>Partner Name:</label>
+                <input type="text" name="hiringPartnerName[]" placeholder="e.g., Google, Microsoft">
+            </div>
+            <div class="form-group">
+                <label>Logo URL:</label>
+                <input type="url" name="hiringPartnerLogo[]" placeholder="Partner logo URL">
+            </div>
+        </div>
+        <button type="button" class="remove-btn" onclick="removeHiringPartner(this)">Remove Partner</button>
+    `;
+    container.appendChild(newPartner);
+}
+
+function removeHiringPartner(button) {
+    const partnerItem = button.closest('.hiring-partner-item');
+    const container = partnerItem.parentElement;
+
+    if (container.children.length > 1) {
+        partnerItem.remove();
+    } else {
+        showMessage('At least one hiring partner must be present', 'warning');
+    }
+}
+
+// Regular Scholarship Functions
+function addRegularScholarship() {
+    const container = document.getElementById('regular-scholarships-container');
+    const newScholarship = document.createElement('div');
+    newScholarship.className = 'scholarship-item';
+    newScholarship.innerHTML = `
+        <div class="form-row">
+            <div class="form-group">
+                <label>Scholarship Name:</label>
+                <input type="text" name="regularScholarshipName[]" placeholder="e.g., Merit Scholarship">
+            </div>
+            <div class="form-group">
+                <label>Discount/Benefit:</label>
+                <input type="text" name="regularScholarshipDiscount[]" placeholder="e.g., 20% concession in Tuition fees">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Eligibility Criteria:</label>
+            <textarea name="regularScholarshipEligibility[]" rows="2"
+                placeholder="Eligibility requirements for this scholarship..."></textarea>
+        </div>
+        <button type="button" class="remove-btn" onclick="removeRegularScholarship(this)">Remove Scholarship</button>
+    `;
+    container.appendChild(newScholarship);
+}
+
+function removeRegularScholarship(button) {
+    const scholarshipItem = button.closest('.scholarship-item');
+    const container = scholarshipItem.parentElement;
+
+    if (container.children.length > 1) {
+        scholarshipItem.remove();
+    } else {
+        showMessage('At least one regular scholarship must be present', 'warning');
+    }
+}
+
+// CUET Scholarship Functions
+function addCuetLevel() {
+    const container = document.getElementById('cuet-scholarship-container');
+    const newLevel = document.createElement('div');
+    newLevel.className = 'cuet-level-item';
+    newLevel.innerHTML = `
+        <div class="form-row">
+            <div class="form-group">
+                <label>Percentile Range:</label>
+                <input type="text" name="cuetPercentile[]" placeholder="e.g., 95.00 - Above">
+            </div>
+            <div class="form-group">
+                <label>Scholarship Percentage:</label>
+                <input type="text" name="cuetScholarship[]" placeholder="e.g., 100%">
+            </div>
+        </div>
+        <button type="button" class="remove-btn" onclick="removeCuetLevel(this)">Remove Level</button>
+    `;
+    container.appendChild(newLevel);
+}
+
+function removeCuetLevel(button) {
+    const levelItem = button.closest('.cuet-level-item');
+    const container = levelItem.parentElement;
+
+    if (container.children.length > 1) {
+        levelItem.remove();
+    } else {
+        showMessage('At least one CUET level must be present', 'warning');
+    }
+}
+
+// Merit Scholarship Functions
+function addMeritLevel() {
+    const container = document.getElementById('merit-scholarship-container');
+    const newLevel = document.createElement('div');
+    newLevel.className = 'merit-level-item';
+    newLevel.innerHTML = `
+        <div class="form-row">
+            <div class="form-group">
+                <label>Percentage Range:</label>
+                <input type="text" name="meritPercentage[]" placeholder="e.g., 96% and above">
+            </div>
+            <div class="form-group">
+                <label>Scholarship Percentage:</label>
+                <input type="text" name="meritScholarship[]" placeholder="e.g., 100%">
+            </div>
+        </div>
+        <button type="button" class="remove-btn" onclick="removeMeritLevel(this)">Remove Level</button>
+    `;
+    container.appendChild(newLevel);
+}
+
+function removeMeritLevel(button) {
+    const levelItem = button.closest('.merit-level-item');
+    const container = levelItem.parentElement;
+
+    if (container.children.length > 1) {
+        levelItem.remove();
+    } else {
+        showMessage('At least one merit level must be present', 'warning');
+    }
+}
+
+// Sports Scholarship Functions
+function addSportsLevel() {
+    const container = document.getElementById('sports-scholarship-container');
+    const newLevel = document.createElement('div');
+    newLevel.className = 'sports-level-item';
+    newLevel.innerHTML = `
+        <div class="form-row">
+            <div class="form-group">
+                <label>Competition Level:</label>
+                <select name="sportsLevel[]">
+                    <option value="">Select Level</option>
+                    <option value="International">International</option>
+                    <option value="National">National</option>
+                    <option value="State">State</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Achievement:</label>
+                <input type="text" name="sportsAchievement[]" placeholder="e.g., Gold medal">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Scholarship Percentage:</label>
+                <input type="text" name="sportsScholarship[]" placeholder="e.g., 100%">
+            </div>
+            <div class="form-group">
+                <label>Remarks:</label>
+                <input type="text" name="sportsRemarks[]" placeholder="Additional conditions or notes">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Renewal Condition:</label>
+            <textarea name="sportsRenewal[]" rows="2"
+                placeholder="Conditions for scholarship renewal..."></textarea>
+        </div>
+        <button type="button" class="remove-btn" onclick="removeSportsLevel(this)">Remove Level</button>
+    `;
+    container.appendChild(newLevel);
+}
+
+function removeSportsLevel(button) {
+    const levelItem = button.closest('.sports-level-item');
+    const container = levelItem.parentElement;
+
+    if (container.children.length > 1) {
+        levelItem.remove();
+    } else {
+        showMessage('At least one sports level must be present', 'warning');
     }
 }

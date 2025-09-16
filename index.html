@@ -40,6 +40,10 @@
                             Tools</a></li>
                     <li><a href="#placement-assistance" class="nav-link" data-section="placement-assistance">🎯
                             Placement Assistance</a></li>
+                    <li><a href="#hiring-partners" class="nav-link" data-section="hiring-partners">🤝 Hiring
+                            Partners</a></li>
+                    <li><a href="#scholarships" class="nav-link" data-section="scholarships">🎓 Scholarships</a></li>
+                    <li><a href="#bank-loan" class="nav-link" data-section="bank-loan">🏦 Bank Loan Assistance</a></li>
                     <li><a href="#accreditations" class="nav-link" data-section="accreditations">🏆 Accreditations</a>
                     </li>
                     <li><a href="#program-benefits" class="nav-link" data-section="program-benefits">✨ Program
@@ -293,10 +297,6 @@
                                     <label>Duration:</label>
                                     <input type="text" name="courseDuration[]" placeholder="e.g., 2 years, 3 years">
                                 </div>
-                                <div class="form-group">
-                                    <label>Source Section:</label>
-                                    <input type="text" name="courseSourceSection[]" placeholder="e.g., 1_about_mba">
-                                </div>
                             </div>
 
                             <div class="form-group">
@@ -493,6 +493,173 @@
                     </div>
                     <button type="button" class="add-btn" onclick="addPlacementService()">+ Add Placement
                         Service</button>
+                </div>
+
+                <!-- Hiring Partners -->
+                <div class="section" id="hiring-partners">
+                    <h2>🤝 Hiring Partners</h2>
+                    <p class="section-description">Add companies and organizations that hire graduates from this
+                        program.</p>
+                    <div id="hiring-partners-container">
+                        <div class="hiring-partner-item">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Partner Name:</label>
+                                    <input type="text" name="hiringPartnerName[]" placeholder="e.g., Google, Microsoft">
+                                </div>
+                                <div class="form-group">
+                                    <label>Logo URL:</label>
+                                    <input type="url" name="hiringPartnerLogo[]" placeholder="Partner logo URL">
+                                </div>
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeHiringPartner(this)">Remove
+                                Partner</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-btn" onclick="addHiringPartner()">+ Add Hiring Partner</button>
+                </div>
+
+                <!-- Scholarships -->
+                <div class="section" id="scholarships">
+                    <h2>🎓 Scholarships</h2>
+                    <p class="section-description">Define available scholarship programs and financial aid options.</p>
+
+                    <h3>Regular Scholarships</h3>
+                    <div id="regular-scholarships-container">
+                        <div class="scholarship-item">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Scholarship Name:</label>
+                                    <input type="text" name="regularScholarshipName[]"
+                                        placeholder="e.g., Merit Scholarship">
+                                </div>
+                                <div class="form-group">
+                                    <label>Discount/Benefit:</label>
+                                    <input type="text" name="regularScholarshipDiscount[]"
+                                        placeholder="e.g., 20% concession in Tuition fees">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Eligibility Criteria:</label>
+                                <textarea name="regularScholarshipEligibility[]" rows="2"
+                                    placeholder="Eligibility requirements for this scholarship..."></textarea>
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeRegularScholarship(this)">Remove
+                                Scholarship</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-btn" onclick="addRegularScholarship()">+ Add Regular
+                        Scholarship</button>
+
+                    <h3>CUET Scholarship</h3>
+                    <div id="cuet-scholarship-container">
+                        <div class="cuet-level-item">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Percentile Range:</label>
+                                    <input type="text" name="cuetPercentile[]" placeholder="e.g., 95.00 - Above">
+                                </div>
+                                <div class="form-group">
+                                    <label>Scholarship Percentage:</label>
+                                    <input type="text" name="cuetScholarship[]" placeholder="e.g., 100%">
+                                </div>
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeCuetLevel(this)">Remove
+                                Level</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-btn" onclick="addCuetLevel()">+ Add CUET Level</button>
+
+                    <h3>Merit Scholarship</h3>
+                    <div id="merit-scholarship-container">
+                        <div class="merit-level-item">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Percentage Range:</label>
+                                    <input type="text" name="meritPercentage[]" placeholder="e.g., 96% and above">
+                                </div>
+                                <div class="form-group">
+                                    <label>Scholarship Percentage:</label>
+                                    <input type="text" name="meritScholarship[]" placeholder="e.g., 100%">
+                                </div>
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeMeritLevel(this)">Remove
+                                Level</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-btn" onclick="addMeritLevel()">+ Add Merit Level</button>
+
+                    <h3>Sports Scholarship</h3>
+                    <div id="sports-scholarship-container">
+                        <div class="sports-level-item">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Competition Level:</label>
+                                    <select name="sportsLevel[]">
+                                        <option value="">Select Level</option>
+                                        <option value="International">International</option>
+                                        <option value="National">National</option>
+                                        <option value="State">State</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Achievement:</label>
+                                    <input type="text" name="sportsAchievement[]" placeholder="e.g., Gold medal">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Scholarship Percentage:</label>
+                                    <input type="text" name="sportsScholarship[]" placeholder="e.g., 100%">
+                                </div>
+                                <div class="form-group">
+                                    <label>Remarks:</label>
+                                    <input type="text" name="sportsRemarks[]"
+                                        placeholder="Additional conditions or notes">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Renewal Condition:</label>
+                                <textarea name="sportsRenewal[]" rows="2"
+                                    placeholder="Conditions for scholarship renewal..."></textarea>
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeSportsLevel(this)">Remove
+                                Level</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-btn" onclick="addSportsLevel()">+ Add Sports Level</button>
+
+                    <h3>Special Scholarships</h3>
+                    <div class="form-group">
+                        <label>Thakur Pratap Singh Memorial Scholarship Description:</label>
+                        <textarea name="tpsScholarshipDescription" rows="3"
+                            placeholder="e.g., 100% scholarship (limited to 100 seats) in the 1st year for meritorious students pursuing undergraduate programs"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Indian Students Eligibility:</label>
+                            <input type="text" name="tpsIndianEligibility" placeholder="e.g., 100%">
+                        </div>
+                        <div class="form-group">
+                            <label>International Students Eligibility:</label>
+                            <input type="text" name="tpsInternationalEligibility" placeholder="e.g., 100%">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank Loan Assistance -->
+                <div class="section" id="bank-loan">
+                    <h2>🏦 Bank Loan Assistance</h2>
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea id="bankLoanDescription" name="bankLoanDescription" rows="3"
+                            placeholder="e.g., Noida International University aims to support deserving/meritorious students in availing financial assistance for pursuing their higher education."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Loan Partners (one per line):</label>
+                        <textarea id="loanPartners" name="loanPartners" rows="5"
+                            placeholder="Enter loan partners, one per line...&#10;e.g.,&#10;KUHOO&#10;PROPELLED&#10;SBI&#10;HDFC Bank"></textarea>
+                    </div>
                 </div>
 
                 <!-- Accreditations -->
